@@ -4,15 +4,18 @@
 
 void RegistrationData::setUsername(const std::string& username) {
     if (!std::regex_match(username, std::regex("^[a-zA-Z0-9_]{3,20}$"))) {
-        throw std::runtime_error("Íåêîððåêòíûé ââîä");
+        throw std::runtime_error("ÐÐµÐºÐ¾Ñ€Ñ€ÐµÐºÑ‚Ð½Ñ‹Ð¹ Ð²Ð²Ð¾Ð´");
     }
+    this->username = username;
 }
 
 void RegistrationData::setPassword(const std::string& password) {
     if (password.length() < 6) {
-        throw std::runtime_error("Ïàðîëü ñëèøêîì êîðîòêèé (ìèíèìàëüíàÿ äëèíà ïàðîëÿ - 6 ñ.) ");
+        throw std::runtime_error("ÐŸÐ°Ñ€Ð¾Ð»ÑŒ ÑÐ»Ð¸ÑˆÐºÐ¾Ð¼ ÐºÐ¾Ñ€Ð¾Ñ‚ÐºÐ¸Ð¹ (Ð¼Ð¸Ð½Ð¸Ð¼Ð°Ð»ÑŒÐ½Ð°Ñ Ð´Ð»Ð¸Ð½Ð° Ð¿Ð°Ñ€Ð¾Ð»Ñ - 6 Ñ.) ");
     }
+    this->password = password;
 }
+
 
 std::string RegistrationData::getUsername() const {
     return username;
